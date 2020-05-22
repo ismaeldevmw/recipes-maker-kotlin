@@ -1,22 +1,11 @@
 package model
 
 class Verdura(cantidad: Int): Ingredient(), IIngredient {
+
+    override val ingredientList:Array<String> = arrayOf<String>("Zanahoria","Jitomate","Coliflor","Espinaca","Ejote","Cebolla","Chile")
+
     init {
-        val message = """ 
-            Ingresa el nombre de un ingrediente
-            1. Zanahoria
-            2. Jitomate
-            3. Coliflor
-            4. Espinaca
-            5. Ejote
-            7. Cebolla
-            8. Chile
-        """.trimIndent()
-        println(message)
+        println("Ingresa el id del ingrediente deseado")
+        println(show(ingredientList, ::showListWithLines))
     }
-
-    override fun messageSuccess(ingredientName: String) {
-        println("La verdura $ingredientName ha sido agregada")
-    }
-
 }

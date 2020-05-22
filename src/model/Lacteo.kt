@@ -1,13 +1,11 @@
 package model
 
-class Lacteo(cantidad: Int): Ingredient() {
+class Lacteo(cantidad: Int): Ingredient(), IIngredient {
+
+    override val ingredientList: Array<String> = arrayOf<String>("Leche","Yoghurt","Queso","Mantequilla")
+
     init {
-        println("""
-            Ingresa el nombre de un ingrediente
-            1. Leche
-            2. Yoghurt
-            3. Queso
-            4. Mantequilla
-        """.trimIndent())
+        println("Ingresa el id del ingrediente deseado")
+        println(show(ingredientList, ::showListWithPipes))
     }
 }

@@ -2,17 +2,11 @@ package model
 
 class Fruta(cantidad: Int): Ingredient(), IIngredient {
 
+    override val ingredientList: Array<String> = arrayOf("Fresa","Platano","Uvas","Manzana","Naranja","Cereza")
+
     init {
-        val message = """ 
-            Ingresa el nombre de un ingrediente
-            1. Fresa
-            2. Platano
-            3. Uvas
-            4. Manzana
-            5. Naranja
-            7. Cereza
-        """.trimIndent()
-        println(message)
+        println("Ingresa el id del ingrediente deseado")
+        println(show(ingredientList, ::showListWithPipes))
     }
 
     override fun messageSuccess(ingredientName: String) {

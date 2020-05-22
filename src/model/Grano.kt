@@ -1,13 +1,11 @@
 package model
 
-class Grano(cantidad: Int): Ingredient() {
+class Grano(cantidad: Int): Ingredient(), IIngredient {
+
+    override val ingredientList: Array<String> = arrayOf("Maiz","Arroz","Pan","Trigo")
+
     init {
-        println("""
-            Ingresa el nombre de un ingrediente
-            1. Maiz
-            2. Arroz
-            3. Pan
-            4. Trigo 
-        """.trimIndent())
+        println("Ingresa el id del ingrediente deseado")
+        println(show(ingredientList, ::showListWithLines))
     }
 }

@@ -25,7 +25,6 @@ fun main() {
             }
         }
     } while (opcionSeleccionada != "3")
-
 }
 
 fun makeRecipe() {
@@ -58,36 +57,44 @@ fun makeRecipe() {
             "Frutas" ->  {
                 val fruta = Fruta(cantidad.toInt())
                 ingredientSelected = readLine() ?: ""
-                fruta.add(ingredients, ingredientSelected)
+                if(fruta.validateSelectedElement(fruta.ingredientList, ingredientSelected.toInt())){
+                    ingredientSelected = fruta.ingredientList[ingredientSelected.toInt()]
+                    fruta.add(ingredients, ingredientSelected)
+                    fruta.messageSuccess(ingredientSelected)
+                }
             }
             "Verduras" -> {
                 val verdura = Verdura(cantidad.toInt())
                 ingredientSelected = readLine() ?: ""
+                ingredientSelected = verdura.ingredientList[ingredientSelected.toInt()]
                 verdura.add(ingredients, ingredientSelected)
             }
             "Agua" -> {
                 val agua = Agua(cantidad.toInt())
-                ingredientSelected = "Agua"
+                ingredientSelected = agua.ingredientList[0]
                 agua.add(ingredients, ingredientSelected)
             }
             "Lacteos" -> {
                 val lacteo = Lacteo(cantidad.toInt())
-                ingredientSelected = readLine() ?: ""
+                ingredientSelected = readLine() ?: "0"
+                ingredientSelected = lacteo.ingredientList[ingredientSelected.toInt()]
                 lacteo.add(ingredients, ingredientSelected)
             }
             "Carnes, legumbres y huevos" -> {
                 val carne = Carne(cantidad.toInt())
-                ingredientSelected = readLine() ?: ""
+                ingredientSelected = readLine() ?: "0"
+                ingredientSelected = carne.ingredientList[ingredientSelected.toInt()]
                 carne.add(ingredients, ingredientSelected)
             }
             "Granos" -> {
                 val grano = Grano(cantidad.toInt())
-                ingredientSelected = readLine() ?: ""
+                ingredientSelected = readLine() ?: "0"
+                ingredientSelected = grano.ingredientList[ingredientSelected.toInt()]
                 grano.add(ingredients, ingredientSelected)
             }
             "Aceites" -> {
                 val aceite = Aceite(cantidad.toInt())
-                ingredientSelected = "Aceite"
+                ingredientSelected = aceite.ingredientList[0]
                 aceite.add(ingredients, ingredientSelected)
             }
         }

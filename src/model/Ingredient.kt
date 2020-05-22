@@ -10,4 +10,9 @@ abstract class Ingredient {
         ingredients.remove(ingredientName)
         return  ingredientName
     }
+
+    fun validateSelectedElement(ingredients: Array<String>, elementSelected: Int): Boolean {
+        var result = if (elementSelected >= ingredients.size) false else  true
+        return result
+    }
 }
